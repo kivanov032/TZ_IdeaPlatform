@@ -1,0 +1,21 @@
+[
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "air_carrier": "Победа",
+    "departure_city": "Владивосток",
+    "arrival_city": "Тель-Авив",
+    "departure_date": "2025-08-10T15:40:17",
+    "arrival_date": "2025-08-10T23:40:17",
+    "price": 500.0
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440001",
+    "air_carrier": "Победа",
+    "departure_city": null,
+    "arrival_city": "Тель-Авив",
+    "departure_date": null,
+    "arrival_date": "2025-08-10T23:40:17",
+    "price": 500.0
+  }
+]
+

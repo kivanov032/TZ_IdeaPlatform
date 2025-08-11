@@ -1,0 +1,272 @@
+[
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "air_carrier": "Аэрофлот",
+    "departure_city": "Москва",
+    "arrival_city": "Санкт-Петербург",
+    "departure_date": "2025-08-15T08:00:00",
+    "arrival_date": "2025-08-15T10:00:00",
+    "price": "75"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440001",
+    "air_carrier": "Аэрофлот",
+    "departure_city": "Владивосток",
+    "arrival_city": "Тель-Авив",
+    "departure_date": "2025-08-16T09:30:00",
+    "arrival_date": "2025-08-16T11:00:00",
+    "price": "50"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440002",
+    "air_carrier": "Аэрофлот",
+    "departure_city": "Владивосток",
+    "arrival_city": "Тель-Авив",
+    "departure_date": "2025-08-17T14:00:00",
+    "arrival_date": "2025-08-17T15:30:00",
+    "price": "120"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440003",
+    "air_carrier": "Аэрофлот",
+    "departure_city": "Владивосток",
+    "arrival_city": "Тель-Авив",
+    "departure_date": "2025-08-18T10:00:00",
+    "arrival_date": "2025-08-18T11:00:00",
+    "price": "90"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440004",
+    "air_carrier": "British Airways",
+    "departure_city": "Лондон",
+    "arrival_city": "Манчестер",
+    "departure_date": "2025-08-19T12:00:00",
+    "arrival_date": "2025-08-19T13:00:00",
+    "price": "80"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440005",
+    "air_carrier": "Аэрофлот",
+    "departure_city": "Владивосток",
+    "arrival_city": "Тель-Авив",
+    "departure_date": "2025-08-20T16:00:00",
+    "arrival_date": "2025-08-20T17:30:00",
+    "price": "95"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440006",
+    "air_carrier": "Аэрофлот",
+    "departure_city": "Владивосток",
+    "arrival_city": "Тель-Авив",
+    "departure_date": "2025-08-21T07:00:00",
+    "arrival_date": "2025-08-21T08:30:00",
+    "price": "60"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440007",
+    "air_carrier": "Аэрофлот",
+    "departure_city": "Владивосток",
+    "arrival_city": "Тель-Авив",
+    "departure_date": "2025-08-22T11:00:00",
+    "arrival_date": "2025-08-22T12:00:00",
+    "price": "70"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440008",
+    "air_carrier": "S7 Airlines",
+    "departure_city": "Владивосток",
+    "arrival_city": "Тель-Авив",
+    "departure_date": "2025-08-23T13:00:00",
+    "arrival_date": "2025-08-23T14:30:00",
+    "price": "110"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440009",
+    "air_carrier": "S7 Airlines",
+    "departure_city": "Владивосток",
+    "arrival_city": "Тель-Авив",
+    "departure_date": "2025-08-24T09:00:00",
+    "arrival_date": "2025-08-24T10:00:00",
+    "price": "85"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440010",
+    "air_carrier": "S7 Airlines",
+    "departure_city": "Владивосток",
+    "arrival_city": "Тель-Авив",
+    "departure_date": "2025-08-25T08:00:00",
+    "arrival_date": "2025-08-25T09:30:00",
+    "price": "65"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440011",
+    "air_carrier": "Победа",
+    "departure_city": "Владивосток",
+    "arrival_city": "Тель-Авив",
+    "departure_date": "2025-08-26T10:00:00",
+    "arrival_date": "2025-08-26T11:30:00",
+    "price": "55"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440012",
+    "air_carrier": "Победа",
+    "departure_city": "Владивосток",
+    "arrival_city": "Тель-Авив",
+    "departure_date": "2025-08-27T12:00:00",
+    "arrival_date": "2025-08-27T13:30:00",
+    "price": "100"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440013",
+    "air_carrier": "Norwegian Air Shuttle",
+    "departure_city": "Осло",
+    "arrival_city": "Берген",
+    "departure_date": "2025-08-28T14:00:00",
+    "arrival_date": "2025-08-28T15:30:00",
+    "price": "130"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440014",
+    "air_carrier": "ЮТэйр",
+    "departure_city": "Владивосток",
+    "arrival_city": "Тель-Авив",
+    "departure_date": "2025-08-29T09:00:00",
+    "arrival_date": "2025-08-29T10:30:00",
+    "price": "140"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440015",
+    "air_carrier": "ЮТэйр",
+    "departure_city": "Владивосток",
+    "arrival_city": "Тель-Авив",
+    "departure_date": "2025-08-30T08:00:00",
+    "arrival_date": "2025-08-30T09:30:00",
+    "price": "120"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440016",
+    "air_carrier": "Ryanair",
+    "departure_city": "Копенгаген",
+    "arrival_city": "Орхус",
+    "departure_date": "2025-08-31T10:00:00",
+    "arrival_date": "2025-08-31T11:30:00",
+    "price": "110"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440017",
+    "air_carrier": "ЮТэйр",
+    "departure_city": "Владивосток",
+    "arrival_city": "Тель-Авив",
+    "departure_date": "2025-09-01T12:00:00",
+    "arrival_date": "2025-09-01T13:30:00",
+    "price": "100"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440018",
+    "air_carrier": "Победа",
+    "departure_city": "Тель-Авив",
+    "arrival_city": "Владивосток",
+    "departure_date": "2025-09-02T14:00:00",
+    "arrival_date": "2025-09-02T15:30:00",
+    "price": "90"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440019",
+    "air_carrier": "Победа",
+    "departure_city": "Тель-Авив",
+    "arrival_city": "Владивосток",
+    "departure_date": "2025-09-03T09:00:00",
+    "arrival_date": "2025-09-03T10:30:00",
+    "price": "80"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440020",
+    "air_carrier": "Brussels Airlines",
+    "departure_city": "Брюссель",
+    "arrival_city": "Антверпен",
+    "departure_date": "2025-09-04T08:00:00",
+    "arrival_date": "2025-09-04T09:00:00",
+    "price": "70"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440021",
+    "air_carrier": "Air Serbia",
+    "departure_city": "Тель-Авив",
+    "arrival_city": "Владивосток",
+    "departure_date": "2025-09-05T10:00:00",
+    "arrival_date": "2025-09-05T11:30:00",
+    "price": "150"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440022",
+    "air_carrier": "Air Serbia",
+    "departure_city": "Тель-Авив",
+    "arrival_city": "Владивосток",
+    "departure_date": "2025-09-06T12:00:00",
+    "arrival_date": "2025-09-06T13:30:00",
+    "price": "110"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440023",
+    "air_carrier": "Air Serbia",
+    "departure_city": "Тель-Авив",
+    "arrival_city": null,
+    "departure_date": "2025-09-07T14:00:00",
+    "arrival_date": "2025-09-07T15:30:00",
+    "price": "95"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440024",
+    "air_carrier": "ЮТэйр",
+    "departure_city": "Тель-Авив",
+    "arrival_city": "Владивосток",
+    "departure_date": "2025-09-08T09:00:00",
+    "arrival_date": "2025-09-08T10:30:00",
+    "price": "85"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440025",
+    "air_carrier": "Air Serbia",
+    "departure_city": "Владивосток",
+    "arrival_city": "Владивосток",
+    "departure_date": "2025-09-09T08:00:00",
+    "arrival_date": "2025-09-09T09:30:00",
+    "price": "75"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440026",
+    "air_carrier": null,
+    "departure_city": "Тель-Авив",
+    "arrival_city": "Владивосток",
+    "departure_date": "2025-09-10T10:00:00",
+    "arrival_date": "2025-09-10T11:30:00",
+    "price": "65"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440027",
+    "air_carrier": "ЮТэйр",
+    "departure_city": "Тель-Авив",
+    "arrival_city": "Владивосток",
+    "departure_date": "2025-09-11T12:00:00",
+    "arrival_date": "2025-09-11T13:30:00",
+    "price": "60"
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440028",
+    "air_carrier": "Аэрофлот",
+    "departure_city": "Тель-Авив",
+    "arrival_city": "Владивосток",
+    "departure_date": "2025-09-12T14:00:00",
+    "arrival_date": "2025-09-12T15:30:00",
+    "price": null
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440029",
+    "air_carrier": "Аэрофлот",
+    "departure_city": "Тель-Авив",
+    "arrival_city": "Владивосток",
+    "departure_date": null,
+    "arrival_date": "2025-09-13T10:30:00",
+    "price": "50"
+  }
+]
