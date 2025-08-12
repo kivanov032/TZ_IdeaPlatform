@@ -62,7 +62,7 @@ public class TaskResults {
         sb.append(String.format("Разница между средней ценой  и медианой для полета между городами %s и %s:\n",
                 firstCity, secondCity));
         if (differenceBetweenAPAndMP >= 0) {
-            sb.append(String.format("%.2f$\n\n", differenceBetweenAPAndMP));
+            sb.append(String.format("%.2f\n\n", differenceBetweenAPAndMP));
         }else {
             sb.append(String.format("Не найдены рейсы между городами %s и %s.\n\n", firstCity, secondCity));
         }

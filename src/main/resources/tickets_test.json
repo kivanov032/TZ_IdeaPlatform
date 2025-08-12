@@ -1,21 +1,29 @@
-[
-  {
-    "id": "550e8400-e29b-41d4-a716-446655440000",
-    "air_carrier": "Победа",
-    "departure_city": "Владивосток",
-    "arrival_city": "Тель-Авив",
-    "departure_date": "2025-08-10T15:40:17",
-    "arrival_date": "2025-08-10T23:40:17",
-    "price": 500.0
+{
+  "tickets": [{
+    "origin": "VVO",
+    "origin_name": "Владивосток",
+    "destination": "TLV",
+    "destination_name": "Тель-Авив",
+    "departure_date": "12.05.18",
+    "departure_time": "16:20",
+    "arrival_date": "12.05.18",
+    "arrival_time": "22:10",
+    "carrier": "TK",
+    "stops": 3,
+    "price": 12400
   },
   {
-    "id": "550e8400-e29b-41d4-a716-446655440001",
-    "air_carrier": "Победа",
-    "departure_city": null,
-    "arrival_city": "Тель-Авив",
-    "departure_date": null,
-    "arrival_date": "2025-08-10T23:40:17",
-    "price": 500.0
-  }
-]
+    "origin": "VVO",
+    "origin_name": "Владивосток",
+    "destination": "TLV",
+    "destination_name": null,
+    "departure_date": "12.05.18",
+    "departure_time": "16:20",
+    "arrival_date": "12.05.18",
+    "arrival_time": "22:10",
+    "carrier": "TK",
+    "stops": 3,
+    "price": 12400
+  }]
+}
 

@@ -1,7 +1,8 @@
 package org.example.service.input;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import java.io.*;
@@ -17,12 +18,14 @@ public class InputProcessinglmpl implements InputProcessing {
 
     /**
      * Парсинг входящего JSON-файла в список объектов типа {@link Flight}.
+     * Возвращает отфильтрованный список, исключая объекты с null в ключевых полях.
      *
      * @param fileName имя файла
-     * @return список объектов {@link Flight}
+     * @return отфильтрованный список объектов {@link Flight}
      * @throws FileNotFoundException если файл не найден
      * @throws IOException если произошла ошибка ввода-вывода или парсинга JSON
      */
+
     @Override
     public List<Flight> getAllFlightsFromJSON(@NonNull final String fileName) throws IOException {
         InputStream inputStream = getFileAsInputStream(fileName);
@@ -33,11 +36,15 @@ public class InputProcessinglmpl implements InputProcessing {
         try (inputStream) {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.registerModule(new JavaTimeModule());
-            objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-            List<Flight> flights = objectMapper.readValue(inputStream, new TypeReference<>() {});
+            JsonNode rootNode = objectMapper.readTree(inputStream);
+            JsonNode ticketsNode = rootNode.get("tickets");
+            if (ticketsNode == null) {
+                throw new IOException("Список 'tickets' отсутствует в JSON.");
+            }
 
-            //return flights;
+            List<Flight> flights = objectMapper.readValue(ticketsNode.traverse(), new TypeReference<>() {});
 
             // Фильтрация списка, исключая объекты с null в ключевых полях
             return filterFlightsFromJSONByCorrectData(flights);
@@ -46,7 +53,6 @@ public class InputProcessinglmpl implements InputProcessing {
             throw new IOException("Ошибка парсинга: " + ex.getMessage());
         }
     }
-
 
 //    /**
 //     * Преобразует файл в поток {@link InputStream}
@@ -84,8 +90,8 @@ public class InputProcessinglmpl implements InputProcessing {
 
     /**
      * Фильтрует список рейсов, оставляя только те, у которых все ключевые поля не равны {@code null}.
-     * Ключевые поля включают: авиаперевозчика ({@link Flight#getAirCarrier}), город отправления
-     * ({@link Flight#getDepartureCity}) и город прибытия ({@link Flight#getArrivalCity}).
+     * Ключевые поля включают: авиаперевозчика ({@link Flight#getCarrier}), город отправления
+     * ({@link Flight#getOriginName()}) и город прибытия ({@link Flight#getDestinationName()}).
      *
      * @param flights список рейсов для фильтрации
      * @return отфильтрованный список рейсов
@@ -95,10 +101,10 @@ public class InputProcessinglmpl implements InputProcessing {
             return Collections.emptyList();
         }
         return flights.stream()
-                .filter(fight -> fight.getAirCarrier() != null &&
-                                fight.getDepartureCity() != null &&
-                                fight.getArrivalCity() != null &&
-                                !fight.getDepartureCity().equals(fight.getArrivalCity())
+                .filter(fight -> fight.getCarrier() != null &&
+                                fight.getOriginName() != null &&
+                                fight.getDestinationName() != null &&
+                                !fight.getOriginName().equals(fight.getDestinationName())
                         )
                 .collect(Collectors.toList());
     }

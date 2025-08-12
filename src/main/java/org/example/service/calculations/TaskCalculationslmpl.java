@@ -22,17 +22,17 @@ public class TaskCalculationslmpl implements TaskCalculations {
         for (Flight flight : filteredFights) {
 
             // Проверка на null для дат
-            if (flight.getDepartureDate() == null || flight.getArrivalDate() == null) {
+            if (flight.getDepartureDateTime() == null || flight.getArrivalDateTime() == null) {
                 continue;
             }
 
             // Проверка на то, что дата прибытия после даты отправки (корректность дат)
-            if (flight.getArrivalDate().isBefore(flight.getDepartureDate())) {
+            if (flight.getArrivalDateTime().isBefore(flight.getDepartureDateTime())) {
                 continue;
             }
 
-            String airCarrier = flight.getAirCarrier();
-            Duration durationFight = Duration.between(flight.getDepartureDate(), flight.getArrivalDate());
+            String airCarrier = flight.getCarrier();
+            Duration durationFight = Duration.between(flight.getDepartureDateTime(), flight.getArrivalDateTime());
 
             // Обновление минимальной длительности для авиаперевозчика
             resultMap.merge(airCarrier, durationFight, (existingDuration, newDuration) ->
@@ -72,10 +72,10 @@ public class TaskCalculationslmpl implements TaskCalculations {
     public List<Flight> getFlightsBetweenConcreteCities(
             List<Flight> flights, final String firstCity, final String secondCity) {
         return flights.stream()
-                .filter(flight -> (firstCity.equals(flight.getDepartureCity())
-                        && secondCity.equals(flight.getArrivalCity()))
-                || (secondCity.equals(flight.getDepartureCity())
-                        && firstCity.equals(flight.getArrivalCity())))
+                .filter(flight -> (firstCity.equals(flight.getDestinationName())
+                        && secondCity.equals(flight.getOriginName()))
+                || (secondCity.equals(flight.getDestinationName())
+                        && firstCity.equals(flight.getOriginName())))
                 .toList();
     }
 
@@ -99,16 +99,16 @@ public class TaskCalculationslmpl implements TaskCalculations {
      * @return медиана цен
      */
     public double getMedianPriceFlightBetweenConcreteCities(List<Flight> flights) {
-        List<Double> sortedPrices = flights.stream()
+        List<Integer> sortedPrices = flights.stream()
                 .map(Flight::getPrice)
                 .sorted()
                 .toList();
 
         int size = sortedPrices.size();
         if (size % 2 != 0) {
-            return sortedPrices.get(size / 2);
+            return (double) sortedPrices.get(size / 2);
         }else {
-            return (sortedPrices.get((size - 1) / 2) + sortedPrices.get(size / 2))/2;
+            return (double) (sortedPrices.get((size - 1) / 2) + sortedPrices.get(size / 2)) /2;
         }
     }
 

@@ -6,100 +6,111 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TaskCalculationTest {
 
     private TaskCalculationslmpl taskCalculations;
+    private DateTimeFormatter dateFormatter;
     private List<Flight> flights;
 
     @BeforeEach
     void setUp() {
         taskCalculations = new TaskCalculationslmpl();
+        dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yy");
 
         flights = List.of(
                 // Рейсы Владивосток -> Тель-Авив
                 Flight.builder()
-                        .id(UUID.fromString("550e8400-e29b-41d4-a716-446655440001"))
-                        .airCarrier("Победа")
-                        .departureCity("Владивосток")
-                        .arrivalCity("Тель-Авив")
-                        .departureDate(LocalDateTime.parse("2025-08-10T10:00:00"))
-                        .arrivalDate(LocalDateTime.parse("2025-08-10T18:00:00"))
-                        .price(-500.0) // Некорректные данные для цены
+                        .originName("Владивосток")
+                        .destinationName("Тель-Авив")
+                        .departureDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .departureTime(LocalTime.parse("16:20"))
+                        .arrivalDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .arrivalTime(LocalTime.parse("23:10"))
+                        .carrier("Победа")
+                        .price(-500) // Некорректные данные для цены
                         .build(),
                 Flight.builder()
-                        .id(UUID.fromString("550e8400-e29b-41d4-a716-446655440011"))
-                        .airCarrier("Победа")
-                        .departureCity("Владивосток")
-                        .arrivalCity("Тель-Авив")
-                        .departureDate(LocalDateTime.parse("2025-08-10T14:00:00"))
-                        .arrivalDate(LocalDateTime.parse("2025-08-10T18:00:00"))
+                        .originName("Владивосток")
+                        .destinationName("Тель-Авив")
+                        .departureDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .departureTime(LocalTime.parse("23:20"))
+                        .arrivalDate(LocalDate.parse("13.05.18", dateFormatter))
+                        .arrivalTime(LocalTime.parse("07:10"))
+                        .carrier("Победа")
                         .price(0)
                         .build(),
                 Flight.builder()
-                        .id(UUID.fromString("550e8400-e29b-41d4-a716-446655440002"))
-                        .airCarrier("Аэрофлот")
-                        .departureCity("Владивосток")
-                        .arrivalCity("Тель-Авив")
-                        .departureDate(LocalDateTime.parse("2025-08-10T11:00:00"))
-                        .arrivalDate(LocalDateTime.parse("2025-08-10T20:00:00"))
-                        .price(356.7)
+                        .originName("Владивосток")
+                        .destinationName("Тель-Авив")
+                        .departureDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .departureTime(LocalTime.parse("16:00"))
+                        .arrivalDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .arrivalTime(LocalTime.parse("22:12"))
+                        .carrier("Аэрофлот")
+                        .price(356)
                         .build(),
                 Flight.builder()
-                        .id(UUID.fromString("550e8400-e29b-41d4-a716-446655440003"))
-                        .airCarrier("S7 Airlines")
-                        .departureCity("Владивосток")
-                        .arrivalCity("Тель-Авив")
-                        .departureDate(LocalDateTime.parse("2025-08-10T11:00:00"))
-                        .arrivalDate(LocalDateTime.parse("2025-08-10T22:00:00"))
-                        .price(123.4)
+                        .originName("Владивосток")
+                        .destinationName("Тель-Авив")
+                        .departureDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .departureTime(LocalTime.parse("15:00"))
+                        .arrivalDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .arrivalTime(LocalTime.parse("21:30"))
+                        .carrier("S7 Airlines")
+                        .price(123)
                         .build(),
 
                 // Рейсы Тель-Авив-> Владивосток
                 Flight.builder()
-                        .id(UUID.fromString("550e8400-e29b-41d4-a716-446655440004"))
-                        .airCarrier("Победа")
-                        .departureCity("Тель-Авив")
-                        .arrivalCity("Владивосток")
-                        .departureDate(LocalDateTime.parse("2025-08-10T11:00:00"))
-                        .arrivalDate(LocalDateTime.parse("2025-08-10T19:00:00"))
-                        .price(244.4)
+                        .originName("Тель-Авив")
+                        .destinationName("Владивосток")
+                        .departureDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .departureTime(LocalTime.parse("15:20"))
+                        .arrivalDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .arrivalTime(LocalTime.parse("22:10"))
+                        .carrier("Победа")
+                        .price(244)
                         .build(),
                 Flight.builder()
-                        .id(UUID.fromString("550e8400-e29b-41d4-a716-446655440005"))
-                        .airCarrier("Аэрофлот")
-                        .departureCity("Тель-Авив")
-                        .arrivalCity("Владивосток")
-                        .departureDate(LocalDateTime.parse("2025-08-10T13:00:00"))
-                        .arrivalDate(LocalDateTime.parse("2025-08-10T21:00:00"))
-                        .price(400.0)
+                        .originName("Тель-Авив")
+                        .destinationName("Владивосток")
+                        .departureDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .departureTime(LocalTime.parse("16:20"))
+                        .arrivalDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .arrivalTime(LocalTime.parse("22:10"))
+                        .carrier("Аэрофлот")
+                        .price(400)
                         .build(),
 
                 // Рейсы с другими городами
                 Flight.builder()
-                        .id(UUID.fromString("550e8400-e29b-41d4-a716-446655440006"))
-                        .airCarrier("ЮТэйр")
-                        .departureCity("Владивосток")
-                        .arrivalCity("Владикавказ")
-                        .departureDate(LocalDateTime.parse("2025-08-10T15:40:17"))
-                        .arrivalDate(LocalDateTime.parse("2025-08-10T23:40:17"))
-                        .price(400.0)
+                        .originName("Владивосток")
+                        .destinationName("Владикавказ")
+                        .departureDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .departureTime(LocalTime.parse("16:20"))
+                        .arrivalDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .arrivalTime(LocalTime.parse("22:10"))
+                        .carrier("ЮТэйр")
+                        .price(400)
                         .build(),
                 Flight.builder()
-                        .id(UUID.fromString("550e8400-e29b-41d4-a716-446655440007"))
-                        .airCarrier("Аэрофлот")
-                        .departureCity("Москва")
-                        .arrivalCity("Тель-Авив")
-                        .departureDate(LocalDateTime.parse("2025-08-10T15:40:17"))
-                        .arrivalDate(LocalDateTime.parse("2025-08-10T23:40:17"))
-                        .price(300.0)
+                        .originName("Москва")
+                        .destinationName("Тель-Авив")
+                        .departureDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .departureTime(LocalTime.parse("16:20"))
+                        .arrivalDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .arrivalTime(LocalTime.parse("22:10"))
+                        .carrier("Аэрофлот")
+                        .price(300)
                         .build()
         );
     }
@@ -124,9 +135,10 @@ public class TaskCalculationTest {
 
         Map<String, Duration> result = taskCalculations.getMinimumFlightTimeBetweenConcreteCitiesForEveryAirCarrier(flights, firstCity, secondCity);
 
-        assertEquals(Duration.ofHours(4), result.get("Победа"));
-        assertEquals(Duration.ofHours(8), result.get("Аэрофлот"));
-        assertEquals(Duration.ofHours(11), result.get("S7 Airlines"));
+        assertEquals(Duration.ofHours(6).plus(Duration.ofMinutes(50)), result.get("Победа"));
+        assertEquals(Duration.ofHours(5).plus(Duration.ofMinutes(50)), result.get("Аэрофлот"));
+        assertEquals(Duration.ofHours(6).plus(Duration.ofMinutes(30)), result.get("S7 Airlines"));
+
     }
 
     @Test
@@ -143,22 +155,24 @@ public class TaskCalculationTest {
     void testFilterFlightsByCorrectPrice_Success(){
         List <Flight> flights = List.of(
                 Flight.builder()
-                        .id(UUID.fromString("550e8400-e29b-41d4-a716-446655440001"))
-                        .airCarrier("Победа")
-                        .departureCity("Тель-Авив")
-                        .arrivalCity("Владивосток")
-                        .departureDate(LocalDateTime.parse("2025-08-10T11:00:00"))
-                        .arrivalDate(LocalDateTime.parse("2025-08-10T18:00:00"))
-                        .price(500.0)
+                        .originName("Тель-Авив")
+                        .destinationName("Владивосток")
+                        .departureDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .departureTime(LocalTime.parse("16:20"))
+                        .arrivalDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .arrivalTime(LocalTime.parse("22:10"))
+                        .carrier("Победа")
+                        .price(500)
                         .build(),
                 Flight.builder()
-                        .id(UUID.fromString("550e8400-e29b-41d4-a716-446655440011"))
-                        .airCarrier("Победа")
-                        .departureCity("Владивосток")
-                        .arrivalCity("Тель-Авив")
-                        .departureDate(LocalDateTime.parse("2025-08-10T13:00:00"))
-                        .arrivalDate(LocalDateTime.parse("2025-08-10T18:00:00"))
-                        .price(-500.0)
+                        .originName("Владивосток")
+                        .destinationName("Тель-Авив")
+                        .departureDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .departureTime(LocalTime.parse("16:20"))
+                        .arrivalDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .arrivalTime(LocalTime.parse("22:10"))
+                        .carrier("Победа")
+                        .price(-500)
                         .build()
         );
 
@@ -174,7 +188,7 @@ public class TaskCalculationTest {
         List<Flight> filteredFights = taskCalculations.getFlightsBetweenConcreteCities(flights, firstCity, secondCity);
         filteredFights = taskCalculations.filterFlightsByCorrectPrice(filteredFights);
         double averagePrice = taskCalculations.getAveragePriceFlightBetweenConcreteCities(filteredFights);
-        assertEquals(224.9d, averagePrice);
+        assertEquals(224.6d, averagePrice, 0.0001);
     }
 
     @Test
@@ -186,14 +200,13 @@ public class TaskCalculationTest {
         filteredFights = taskCalculations.filterFlightsByCorrectPrice(filteredFights);
 
         double medianPrice = taskCalculations.getMedianPriceFlightBetweenConcreteCities(filteredFights);
-        assertEquals(244.4d, medianPrice);
+        assertEquals(244.0d, medianPrice);
 
         List<Flight> filteredFightsNew = new ArrayList<>(filteredFights);
-        System.out.println(filteredFightsNew);
-
         filteredFightsNew.remove(0);
+
         medianPrice = taskCalculations.getMedianPriceFlightBetweenConcreteCities(filteredFightsNew);
-        assertEquals(300.55d, medianPrice);
+        assertEquals(300d, medianPrice, 0.0001);
     }
 
     @Test
@@ -205,7 +218,7 @@ public class TaskCalculationTest {
                         flights, firstCity, secondCity
                 );
 
-        assertEquals(19.5d, resultDifference);
+        assertEquals(19.4, resultDifference, 0.0001);
     }
 
     @Test
@@ -220,13 +233,14 @@ public class TaskCalculationTest {
 
         List<Flight> flights = List.of(
                 Flight.builder()
-                        .id(UUID.fromString("550e8400-e29b-41d4-a716-446655440001"))
-                        .airCarrier("Победа")
-                        .departureCity("Нет такого города")
-                        .arrivalCity("Владивосток")
-                        .departureDate(LocalDateTime.parse("2025-08-10T11:00:00"))
-                        .arrivalDate(LocalDateTime.parse("2025-08-10T18:00:00"))
-                        .price(-500.0)
+                        .originName("Нет такого города")
+                        .destinationName("Владивосток")
+                        .departureDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .departureTime(LocalTime.parse("16:20"))
+                        .arrivalDate(LocalDate.parse("12.05.18", dateFormatter))
+                        .arrivalTime(LocalTime.parse("22:10"))
+                        .carrier("Победа")
+                        .price(-500)
                         .build()
                 );
 

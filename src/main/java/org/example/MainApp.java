@@ -28,7 +28,7 @@ public class MainApp
         FlightRepository flightRepository = new FlightRepository();
         try{
             List<Flight> flightList = inputProcessinglmpl.getAllFlightsFromJSON(FILE_NAME_TICKETS);
-            flightRepository.setFlights(flightList);
+            flightRepository.setFlights(flightList); // Сохраняем список
         }catch (IOException e){
             System.out.println(e.getMessage());
             return;
