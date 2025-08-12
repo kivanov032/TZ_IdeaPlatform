@@ -59,7 +59,7 @@ public class TaskResults {
      */
     public String getDifferenceBetweenAPAndMPFormated(){
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Разница между средней ценой  и медианой для полета между городами %s и %s:\n",
+        sb.append(String.format("Разница между средней ценой и медианой для полета между городами %s и %s:\n",
                 firstCity, secondCity));
         if (differenceBetweenAPAndMP >= 0) {
             sb.append(String.format("%.2f\n\n", differenceBetweenAPAndMP));
